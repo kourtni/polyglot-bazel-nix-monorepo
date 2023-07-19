@@ -9,9 +9,9 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "io_tweag_rules_nixpkgs",
-    sha256 = "7aee35c95251c1751e765f7da09c3bb096d41e6d6dca3c72544781a5573be4aa",
-    strip_prefix = "rules_nixpkgs-0.8.0",
-    urls = ["https://github.com/tweag/rules_nixpkgs/archive/v0.8.0.tar.gz"],
+    sha256 = "b01f170580f646ee3cde1ea4c117d00e561afaf3c59eda604cf09194a824ff10",
+    strip_prefix = "rules_nixpkgs-0.9.0",
+    urls = ["https://github.com/tweag/rules_nixpkgs/archive/refs/tags/v0.9.0.tar.gz"],
 )
 
 http_archive(
@@ -64,11 +64,6 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_java/archive/refs/tags/5.0.0.tar.gz",
 )
 
-### Java Setup
-load("@rules_java//java:repositories.bzl", "rules_java_dependencies", "rules_java_toolchains")
-
-rules_java_dependencies()
-
 load("@io_tweag_rules_nixpkgs//nixpkgs:repositories.bzl", "rules_nixpkgs_dependencies")
 
 rules_nixpkgs_dependencies()
@@ -81,8 +76,14 @@ nixpkgs_git_repository(
     sha256 = "0f8c25433a6611fa5664797cd049c80faefec91575718794c701f3b033f2db01",
 )
 
-load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_java_configure")
+### Java Setup
+load("@rules_java//java:repositories.bzl", "rules_java_dependencies", "rules_java_toolchains")
 
+rules_java_dependencies()
+
+rules_java_toolchains()
+
+load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_java_configure")
 nixpkgs_java_configure(
     attribute_path = "jdk11.home",
     repository = "@nixpkgs",
@@ -90,8 +91,6 @@ nixpkgs_java_configure(
     toolchain_name = "nixpkgs_java",
     toolchain_version = "11",
 )
-
-rules_java_toolchains()
 
 ### Python Setup
 load("@rules_python//python:pip.bzl", "pip_install")
@@ -184,6 +183,16 @@ load("@bazoku//tools:deps.bzl", "bazoku_deps")
 bazoku_deps()
 
 ### Java
+RULES_JVM_EXTERNAL_TAG = "4.5"
+RULES_JVM_EXTERNAL_SHA = "b17d7388feb9bfa7f2fa09031b32707df529f26c91ab9e5d909eb1676badd9a6"
+
+http_archive(
+    name = "rules_jvm_external",
+    strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
+    sha256 = RULES_JVM_EXTERNAL_SHA,
+    url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
+)
+
 load("@rules_jvm_external//:repositories.bzl", "rules_jvm_external_deps")
 
 rules_jvm_external_deps()

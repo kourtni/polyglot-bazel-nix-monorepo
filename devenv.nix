@@ -10,7 +10,6 @@
     pkgs.buildifier
     pkgs.buildozer
     pkgs.gcc
-    pkgs.nix
   ];
 
   # https://devenv.sh/scripts/

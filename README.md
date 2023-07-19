@@ -15,53 +15,53 @@ Since the whole point here is to automate the dev environment there are only a f
 1. [direnv](https://direnv.net/docs/installation.html) - comes pre-installed on some systems
 
 
-# *** CURRENT STATUS -> Nixified Java Project DOES NOT BUILD ***
-
 ## Useful Commands
 For now I'm leaving the commands here that @kriscfoster listed. It's not clear if some of them may need to be updated once Nix has been fully integrated, but will updated them as needed.
 
 ### Build all targets
 
-- `bazel build //...`
+- `bazelisk build //...`
 
 ### Test all test targets
 
-- `bazel test //...`
+- `bazelisk test //...`
+
+### Run Java Greeter app
 
 ### Sync Go Dependencies with `go.mod`
 
-- `bazel run //:gazelle-update-repos`
+- `bazelisk run //:gazelle-update-repos`
 
 ### Format BUILD.bazel files (completely generates BUILd.bazel files for go projects)
 
-- `bazel run //:gazelle`
+- `bazelisk run //:gazelle`
 
 ### Run Python web app
 
-- `bazel run //projects/python_web`
+- `bazelisk run //projects/python_web`
 - http://localhost:5000
 
 ### Run Go web app
 
-- `bazel run //projects/go_web`
+- `bazelisk run //projects/go_web`
 - http://localhost:8080
 
 ### Run NodeJS web app
 
-- `bazel run //projects/node_web`
+- `bazelisk run //projects/node_web`
 - http://localhost:8080
 
 ### Run TypeScript app
 
-- `bazel run //projects/ts_app`
+- `bazelisk run //projects/ts_app`
 
 ### Run React app
 
-- `bazel run //projects/react_app:start`
+- `bazelisk run //projects/react_app:start`
 
 ### Build & Run NodeJS web app docker image
 ```
-➜ bazel run projects/node_web:node_web_image --@io_bazel_rules_docker//transitions:enable=yes -- --norun
+➜ bazelisk run projects/node_web:node_web_image --@io_bazel_rules_docker//transitions:enable=yes -- --norun
 ...
 INFO: Build completed successfully, 1 total action
 Loaded image ID: sha256:XXX
@@ -73,7 +73,7 @@ listening on port 8080
 
 ### Build & Run Go web app docker image
 ```
-➜ bazel run projects/go_web:go_web_image --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 -- --norun
+➜ bazelisk run projects/go_web:go_web_image --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 -- --norun
 ...
 INFO: Build completed successfully, 1 total action
 Loaded image ID: sha256:XXX
@@ -85,7 +85,7 @@ Tagging YYY as bazel/projects/go_web:go_web_image
 
 ### Build & Run Go web app docker image (custom base)
 ```
-➜ bazel run projects/go_web:go_web_image_custom_base --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 -- --norun
+➜ bazelisk run projects/go_web:go_web_image_custom_base --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 -- --norun
 ...
 INFO: Build completed successfully, 1 total action
 Loaded image ID: sha256:XXX
@@ -97,7 +97,7 @@ Tagging YYY as bazel/projects/go_web:go_web_image_custom_base
 
 ### Build & Run Python web app docker image
 ```
-➜ bazel run projects/python_web:python_web_image -- --norun
+➜ bazelisk run projects/python_web:python_web_image -- --norun
 ...
 INFO: Build completed successfully, 1 total action
 Loaded image ID: sha256:XXX
@@ -110,7 +110,7 @@ Tagging YYY as bazel/projects/python_web:python_web_image
 
 ### Publishing Python web app docker image
 ```
-➜ bazel run projects/python_web:publish         
+➜ bazelisk run projects/python_web:publish         
 ...
 INFO: Build completed successfully, 1 total action
 2022/06/24 20:13:33 Successfully pushed Docker image to registry.hub.docker.com/krisfoster96/monorepo-python-web:1 - registry.hub.docker.com/krisfoster96/monorepo-python-web@sha256:024bcf5dd677d6fbce32fcf9d09329f4c80931cc12c90965bb397af1f497bf39
@@ -119,6 +119,6 @@ INFO: Build completed successfully, 1 total action
 ### Deploying Go web app to Heroku
 
 ```
-➜ bazel** run projects/go_web:bazoku-deployment --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64
+➜ bazelisk run projects/go_web:bazoku-deployment --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64
 ...
 ```

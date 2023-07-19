@@ -76,22 +76,6 @@ nixpkgs_git_repository(
     sha256 = "0f8c25433a6611fa5664797cd049c80faefec91575718794c701f3b033f2db01",
 )
 
-### Java Setup
-load("@rules_java//java:repositories.bzl", "rules_java_dependencies", "rules_java_toolchains")
-
-rules_java_dependencies()
-
-rules_java_toolchains()
-
-load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_java_configure")
-nixpkgs_java_configure(
-    attribute_path = "jdk11.home",
-    repository = "@nixpkgs",
-    toolchain = True,
-    toolchain_name = "nixpkgs_java",
-    toolchain_version = "11",
-)
-
 ### Python Setup
 load("@rules_python//python:pip.bzl", "pip_install")
 

@@ -1,26 +1,24 @@
-# multi-language-bazel-monorepo
+# Polyglot Bazel Nix Monorepo
+<strong>A Nixified fork of kriscfoster/multi-language-bazel-monorepo</strong>
 
-![Getting Started with Bazel](https://user-images.githubusercontent.com/17026751/147872728-cba68987-9a5c-4cb6-9777-47c51efc4c75.png)
+I wanted to take a multi-language monorepo that was already using [bazel](https://bazel.build/) and update it to integrate Nix to enable reproducible development environments. Luckily @kriscfoster had already created a multi-language monorepo, so this fork will attempt to integrate Nix and create a good baseline development environment.
 
-I wanted to try to set up a multi-language monorepo using [bazel](https://bazel.build/) for experimentation purposes. You can follow the journey on YouTube.
-
-1. [Bazel Tutorial: (Part 1) Getting Started, Bazelisk & our First Build Targets](https://youtu.be/BZYj6yfA6Bs).
-2. [Bazel Tutorial: How to Build, Run, Test & Query (deps, rdeps, tags)](https://youtu.be/vZnXXx4Oh7c).
-3. [Bazel Tutorial: Python targets with py_library, py_test, py_binary (internal & external deps)](https://youtu.be/8P3m1-U7v0k).
-4. [GitHub Actions for Bazel Monorepo - Building & Testing (CI)](https://youtu.be/qiZXFdd8OPo).
-5. [Bazel & Go Tutorial: Targets with go_library, go_test & go_binary (internal & external deps)](https://youtu.be/DB_kWimE2bw).
-6. [Bazel & NodeJS Tutorial: library, test & nodejs_binary (internal & external deps)](https://youtu.be/lmWjRhFhvSc).
-7. [Bazel & Docker Tutorial: Building container images with bazel (local & remote registry)](https://youtu.be/hLD6vKl4Txc).
-8. [Deploying from a Bazel Monorepo to Heroku](https://youtu.be/AHvON-xl_Ds).
-9. [Using Gazelle to Improve Multi-Language Bazel Monorepo](https://youtu.be/MUP35hfK0q4).
-10. [Bazel & Java Tutorial: java_library & java_binary (internal & external dependencies)](https://youtu.be/HPTzVHOcins).
-11. [Bazel & Docker: Using Custom Base Images](https://youtu.be/thYPUrhA82A).
+The goal is to support development in linux compatible environments,  including:
+- <strong>Linux (most, if not all, flavors)
+- Windows running WSL2
+- MacOS (required for any iOS development)</strong>
 
 ## Prerequisites
+Since the whole point here is to automate the dev environment there are only a few components required to be on your system.
+1. [devenv](https://devenv.sh/getting-started/) - following their guide will install all items in this list
+1. [nix](https://nixos.org/download.html)
+1. [direnv](https://direnv.net/docs/installation.html) - comes pre-installed on some systems
 
-- [bazelisk installed](https://github.com/bazelbuild/bazelisk) (`brew install bazelisk` on mac) - bazel launcher that also manages the bazel installation & version using the [.bazelversion](./.bazelversion) file.
+
+# *** CURRENT STATUS -> Nixified Java Project DOES NOT BUILD ***
 
 ## Useful Commands
+For now I'm leaving the commands here that @kriscfoster listed. It's not clear if some of them may need to be updated once Nix has been fully integrated, but will updated them as needed.
 
 ### Build all targets
 

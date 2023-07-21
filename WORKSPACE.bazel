@@ -2,7 +2,7 @@
 # See https://docs.bazel.build/versions/main/build-ref.html#workspace
 workspace(
     # How this workspace would be referenced with absolute labels from another workspace
-    name = "multi_language_monorepo",
+    name = "polyglot-bazel-nix-monorepo",
 )
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")

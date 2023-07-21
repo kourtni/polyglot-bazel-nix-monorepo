@@ -19,7 +19,23 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.8.4",
+    "typescript": "4.9.3",
     "web-vitals": "^2.1.4"
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "@typescript-eslint/eslint-plugin": {
+        "peerDependencies": {
+          "eslint": "*"
+        }
+      },
+      "postcss-loader": {
+        "peerDependencies": {
+          "postcss-flexbugs-fixes": "*",
+          "postcss-preset-env": "*",
+          "postcss-normalize": "*"
+        }
+      }
+    }
   }
 }

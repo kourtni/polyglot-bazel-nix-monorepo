@@ -3,3 +3,4 @@ inputs:
     url: github:NixOS/nixpkgs/nixpkgs-unstable
 imports:
 - ./projects/java_greeter
+- ./projects/react-cra

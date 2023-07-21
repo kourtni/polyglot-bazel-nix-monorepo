@@ -23,9 +23,9 @@
     "typescript": "4.9.3"
   },
   "scripts": {
-    "start": "ibazel run //:start",
-    "build": "bazel build //:build",
-    "test": "ibazel test //src:src_test"
+    "start": "ibazel run //projects/react-cra:start",
+    "build": "bazel build //projects/react-cra:build",
+    "test": "ibazel test //projects/react-cra/src:src_test"
   },
   "eslintConfig": {
     "extends": [
@@ -44,21 +44,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "pnpm": {
-    "packageExtensions": {
-      "@typescript-eslint/eslint-plugin": {
-        "peerDependencies": {
-          "eslint": "*"
-        }
-      },
-      "postcss-loader": {
-        "peerDependencies": {
-          "postcss-flexbugs-fixes": "*",
-          "postcss-preset-env": "*",
-          "postcss-normalize": "*"
-        }
-      }
-    }
   }
 }

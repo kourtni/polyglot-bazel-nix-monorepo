@@ -39,11 +39,11 @@ ts_project(
     ),
     declaration = True,
     resolve_json_module = True,
-    tsconfig = "//:tsconfig",
+    tsconfig = "//projects/react-cra:tsconfig",
     deps = [
-        "//:node_modules/react",
-        "//:node_modules/react-dom",
-        "//:node_modules/web-vitals",
+        "//projects/react-cra:node_modules/react",
+        "//projects/react-cra:node_modules/react-dom",
+        "//projects/react-cra:node_modules/web-vitals",
     ],
 )
 
@@ -53,18 +53,18 @@ ts_project(
     declaration = True,
     resolve_json_module = True,
     supports_workers = False,  # worker bug on macos: ERROR: react-cra/src/BUILD.bazel:50:11: output 'src/App.test.js' was not created
-    tsconfig = "//:tsconfig",
+    tsconfig = "//projects/react-cra:tsconfig",
     deps = [
         ":src_ts",
-        "//:node_modules/@testing-library/jest-dom",
-        "//:node_modules/@testing-library/react",
-        "//:node_modules/@types/jest",
+        "//projects/react-cra:node_modules/@testing-library/jest-dom",
+        "//projects/react-cra:node_modules/@testing-library/react",
+        "//projects/react-cra:node_modules/@types/jest",
     ],
 )
 
 jest_test(
     name = "src_test",
-    config = "//:jest_config",
+    config = "//projects/react-cra:jest_config",
     data = [
         ":src",
         ":src_test_ts",
@@ -81,7 +81,7 @@ eslint_bin.eslint_test(
         p,
     ) for p in SRC_PATTERNS],
     data = [
-        "//:package_json",
+        "//projects/react-cra:package_json",
         "//:node_modules/eslint-config-react-app",
     ] + glob(SRC_PATTERNS),
 )

@@ -3,6 +3,8 @@
 
 I wanted to take a multi-language monorepo that was already using [bazel](https://bazel.build/) and update it to integrate Nix to enable reproducible development environments. Luckily @kriscfoster had already created a multi-language monorepo, so this fork will attempt to integrate Nix and create a good baseline development environment.
 
+Note: Recently added a copy of https://github.com/aspect-build/bazel-examples/tree/main/react-cra as `projects/react-cra`. It is setup as its own Bazel workspace, but I am trying to get that example project to build as a project in a larger monorepo. Previous attempts have resulted in me [filing a bug](https://github.com/aspect-build/bazel-examples/issues/240) but it turned out that I just sucked at integrating it as a project in a larger workspace.🤣🤦🏿‍♂️
+
 The goal is to support development in linux compatible environments,  including:
 - <strong>Linux (most, if not all, flavors)
 - Windows running WSL2

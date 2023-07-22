@@ -1,5 +1,5 @@
 {
-  "name": "multi-language-bazel-monorepo",
+  "name": "polyglot-bazel-nix-monorepo",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {

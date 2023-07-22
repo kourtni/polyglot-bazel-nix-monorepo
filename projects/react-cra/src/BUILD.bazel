@@ -68,10 +68,10 @@ jest_test(
     data = [
         ":src",
         ":src_test_ts",
-        "//:node_modules/jest-environment-jsdom",
-        "//:node_modules/jest-transform-stub",
+        "//projects/react-cra:node_modules/jest-environment-jsdom",
+        "//projects/react-cra:node_modules/jest-transform-stub",
     ],
-    node_modules = "//:node_modules",
+    node_modules = "//projects/react-cra:node_modules",
 )
 
 eslint_bin.eslint_test(

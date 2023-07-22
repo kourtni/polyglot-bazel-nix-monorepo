@@ -1,7 +1,8 @@
-load("@aspect_rules_js//js:defs.bzl", "js_library", "js_run_devserver", "js_test")
+load("@aspect_rules_js//js:defs.bzl", "js_library", "js_test")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("@npm//:react-scripts/package_json.bzl", cra_bin = "bin")
 load("@npm//:defs.bzl", "npm_link_all_packages")
+load("cra.bzl", "cra_run_devserver")
 
 npm_link_all_packages()
 
@@ -33,10 +34,10 @@ js_test(
     entry_point = "build_smoke_test.js",
 )
 
-js_run_devserver(
+cra_run_devserver(
     name = "start",
     args = ["start"],
-    command = "projects/react-cra/node_modules/.bin/react-scripts",
+    command = "node_modules/.bin/react-scripts",
     data = CRA_DEPS,
 )
 

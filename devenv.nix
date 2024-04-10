@@ -6,7 +6,7 @@
 
   # https://devenv.sh/packages/
   packages = [
-    pkgs.bazelisk
+    pkgs.bazel
     pkgs.buildifier
     pkgs.buildozer
     pkgs.gcc
@@ -18,7 +18,7 @@
     echo -e "\033[0;31m### Welcome to the $GREET. Remember to commit early & often! ###\033[0m"
     echo "This shell contains the following development tools:"
     git --version
-    bazelisk --version
+    bazel --version
     buildozer --version
     nix --version
     devenv version

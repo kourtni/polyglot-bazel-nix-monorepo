@@ -4,7 +4,7 @@
 
   # https://devenv.sh/packages/
   packages = [
-    pkgs.bazelisk
+    pkgs.bazel
     pkgs.buildifier
     pkgs.buildozer
     pkgs.gcc

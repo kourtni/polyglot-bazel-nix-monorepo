@@ -3,11 +3,10 @@
 {
   # https://devenv.sh/packages/
   packages = [
-    pkgs.bazelisk
+    pkgs.bazel
     pkgs.buildifier
     pkgs.buildozer
     pkgs.gcc
-    pkgs.nodejs.pkgs.pnpm
     pkgs.bazel-watcher
   ];
 
@@ -18,14 +17,12 @@
     echo pnpm `pnpm --version`
     echo npm `npm --version`
     echo yarn `yarn --version`
-
-    alias bazel='bazelisk'
   '';
 
   # https://devenv.sh/languages/
   languages.javascript.enable = true;
   languages.typescript.enable = true;
-  languages.javascript.corepack.enable = true;
+  languages.javascript.corepack.enable = true;  # Adds JS related tooling like pnpm
 
   # https://devenv.sh/pre-commit-hooks/
   # pre-commit.hooks.shellcheck.enable = true;
